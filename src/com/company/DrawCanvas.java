@@ -22,6 +22,5 @@ public class DrawCanvas {
             globalString += "\n";
         }
         return globalString;
-
     }
 }

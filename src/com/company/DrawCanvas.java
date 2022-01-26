@@ -9,11 +9,11 @@ public class DrawCanvas {
         String globalString = "";
         int maxWeight = w + 2;
         int maxHeight = h + 2;
-        for (int i = 0; i < maxHeight; i++) {
-            for (int j = 0; j < maxWeight; j++) {
-                if (i == 0 || i == maxHeight - 1) {
+        for (int yPos = 0; yPos < maxHeight; yPos++) {
+            for (int xPos = 0; xPos < maxWeight; xPos++) {
+                if (yPos == 0 || yPos == maxHeight - 1) {
                     globalString += "-";
-                }else if(j == 0 || j == maxWeight - 1){
+                }else if(xPos == 0 || xPos == maxWeight - 1){
                     globalString += "|";
                 }else{
                     globalString += " ";

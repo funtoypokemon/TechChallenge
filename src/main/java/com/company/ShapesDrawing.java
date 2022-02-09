@@ -19,6 +19,7 @@ public class ShapesDrawing {
                     y2 = y1 - y2;
                     y1 = y1 - y2;
                 }
+
                 // line on y axis
                 if (x1 == x2) {
                     for (int yPos = y1; yPos <= y2; yPos++) {

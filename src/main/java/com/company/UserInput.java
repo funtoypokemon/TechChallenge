@@ -7,7 +7,7 @@ public class UserInput {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter your command: ");
         String userInput = input.nextLine();
-        String[] symbol = userInput.split(" ");
-        return symbol;
+        userInput = userInput.trim().replaceAll("\\s+"," ");
+        return userInput.split(" ");
     }
 }

@@ -23,7 +23,7 @@ public class ShapesDrawing {
                 if (x1 == x2) {
                     for (int yPos = y1; yPos <= y2; yPos++) {
                         for (int xPos = x1; xPos <= x2; xPos++) {
-                            StringBuffer tempLineString = new StringBuffer(lineString[yPos]);
+                            StringBuilder tempLineString = new StringBuilder(lineString[yPos]);
                             tempLineString.replace(xPos, xPos + 1, "x");
                             lineString[yPos] = String.valueOf(tempLineString);
                         }
@@ -32,7 +32,7 @@ public class ShapesDrawing {
 
                 //line on x axis
                 if (y1 == y2) {
-                    StringBuffer tempLineString = new StringBuffer(lineString[y1]);
+                    StringBuilder tempLineString = new StringBuilder(lineString[y1]);
                     for (int xPos = x1; xPos <= x2; xPos++) {
                         tempLineString.replace(xPos, xPos + 1, "x");
                     }
@@ -72,7 +72,7 @@ public class ShapesDrawing {
                 }
                 for (int yPos = y1; yPos <= y2; yPos++) {
                     for (int xPos = x1; xPos <= x2; xPos++) {
-                        StringBuffer tempRectString = new StringBuffer(rectString[yPos]);
+                        StringBuilder tempRectString = new StringBuilder(rectString[yPos]);
                         tempRectString.replace(xPos, xPos + 1, "x");
                         if (xPos > x1 && xPos < x2 && yPos > y1 && yPos < y2) {
                             tempRectString.replace(xPos, xPos + 1, " ");

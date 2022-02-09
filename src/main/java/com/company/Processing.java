@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Objects;
-
 public class Processing {
 
     public static void workingThread() {
@@ -11,12 +9,12 @@ public class Processing {
         String globalString;
         try {
             // draw canvas
-            if (Objects.equals(drawCanvas, "C")) {
+            if (drawCanvas.equals("C")) {
                 globalString = DrawCanvas.drawingCanvas(Integer.parseInt(canvasSymbol[1]), Integer.parseInt(canvasSymbol[2]));
-                DrawCanvas.drawingCanvas(Integer.parseInt(canvasSymbol[1]), Integer.parseInt(canvasSymbol[2]));
                 System.out.println(globalString);
                 caseProcess(globalString);
             }
+
             // recall function
             else {
                 System.out.println("Please create a canvas first");
@@ -27,7 +25,6 @@ public class Processing {
             workingThread();
             e.printStackTrace();
         }
-
     }
 
     public static void caseProcess(String globalString) {
@@ -37,23 +34,27 @@ public class Processing {
 
         // drawing case
 
-        if (Objects.equals(shapeTypes, "L")) {
-            globalString = ShapesDrawing.drawLines(globalString, Integer.parseInt(shapeSymbol[1]), Integer.parseInt(shapeSymbol[2]), Integer.parseInt(shapeSymbol[3]), Integer.parseInt(shapeSymbol[4]));
-            System.out.println(globalString);
-            caseProcess(globalString);
-        } else if (Objects.equals(shapeTypes, "R")) {
-            globalString = ShapesDrawing.drawRectangle(globalString, Integer.parseInt(shapeSymbol[1]), Integer.parseInt(shapeSymbol[2]), Integer.parseInt(shapeSymbol[3]), Integer.parseInt(shapeSymbol[4]));
-            System.out.println(globalString);
-            caseProcess(globalString);
-        } else if (Objects.equals(shapeTypes, "B")) {
-            globalString = ShapesDrawing.fillColor(globalString, Integer.parseInt(shapeSymbol[1]), Integer.parseInt(shapeSymbol[2]), shapeSymbol[3]);
-            System.out.println(globalString);
-            caseProcess(globalString);
-        } else if (Objects.equals(shapeTypes, "Q")) {
-            System.exit(0);
-        } else {
-            System.out.println("Please re-enter your command!");
-            caseProcess(globalString);
+        switch (shapeTypes) {
+            case "L" -> {
+                globalString = ShapesDrawing.drawLines(globalString, Integer.parseInt(shapeSymbol[1]), Integer.parseInt(shapeSymbol[2]), Integer.parseInt(shapeSymbol[3]), Integer.parseInt(shapeSymbol[4]));
+                System.out.println(globalString);
+                caseProcess(globalString);
+            }
+            case "R" -> {
+                globalString = ShapesDrawing.drawRectangle(globalString, Integer.parseInt(shapeSymbol[1]), Integer.parseInt(shapeSymbol[2]), Integer.parseInt(shapeSymbol[3]), Integer.parseInt(shapeSymbol[4]));
+                System.out.println(globalString);
+                caseProcess(globalString);
+            }
+            case "B" -> {
+                globalString = ShapesDrawing.fillColor(globalString, Integer.parseInt(shapeSymbol[1]), Integer.parseInt(shapeSymbol[2]), shapeSymbol[3]);
+                System.out.println(globalString);
+                caseProcess(globalString);
+            }
+            case "Q" -> System.exit(0);
+            default -> {
+                System.out.println("Please re-enter your command!");
+                caseProcess(globalString);
+            }
         }
     }
 }
